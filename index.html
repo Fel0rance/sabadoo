@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>راهنمای خرید — صفحهٔ اصلی</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="logo">Sabadoo</div>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <section class="hero">
+      <h1 class="sr-only">راهنمای هوشمند خرید</h1>
+
+      <div class="search-box">
+        <input id="searchInput" type="search" placeholder="جستجوی کالا یا دسته‌بندی..." aria-label="جستجو" />
+        <button id="searchBtn" aria-label="جستجو">
+          <!-- simple magnifier icon -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div id="searchResults" class="search-results" aria-live="polite"></div>
+    </section>
+
+    <section class="banners">
+      <h2 class="section-title">محصولات پربازدید</h2>
+      <div id="bannersContainer" class="banners-grid">
+        <!-- بنرها توسط JS پر می‌شوند -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© تمامی حقوق محفوظ است</div>
+  </footer>
+
+  <script src="products.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
