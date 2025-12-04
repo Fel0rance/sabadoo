@@ -11,10 +11,12 @@
   <div class="page-wrapper">
 
     <!-- سرچ -->
-    <div class="search-wrapper">
-      <button class="search-btn" id="searchButton">🔍</button>
-      <input type="text" id="searchBox" class="search-box" placeholder="جستجو..." />
-    </div>
+<div class="search-wrapper">
+  <input type="text" id="searchBox" class="search-box" placeholder="جستجو در دسته‌بندی‌ها...">
+  <button class="search-btn" aria-label="جستجو">🔍</button>
+  <ul id="suggestions" class="suggestions-list"></ul>
+</div>
+
 
     <!-- دسته‌بندی‌ها -->
     <div class="category-container">
@@ -31,3 +33,4 @@
 <script src="script.js"></script>
 </body>
 </html>
+
