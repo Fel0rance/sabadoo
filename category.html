@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>دسته‌بندی</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+
+    <h2 id="catTitle">در حال بارگذاری...</h2>
+
+    <div id="productList" class="product-list"></div>
+
+  </div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const category = params.get("cat");
+
+  document.getElementById("catTitle").innerText =
+      "دسته‌بندی: " + category;
+
+  // نمایش اولویت‌ها یا فیلترها فقط مخصوص این دسته
+  document.getElementById("productList").innerHTML = `
+      <div class="filter-section">
+         <p>اولویت‌های شما:</p>
+         <button>ارزان‌ترین</button>
+         <button>پربازدیدترین</button>
+         <button>بهترین امتیاز</button>
+      </div>
+  `;
+</script>
+
+</body>
+</html>
