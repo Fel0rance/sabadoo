@@ -1,49 +1,33 @@
-<!doctype html>
-<html lang="fa" dir="rtl">
+<!DOCTYPE html>
+<html lang="fa">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>راهنمای خرید — صفحهٔ اصلی</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sabadoo</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="container">
-      <!-- header intentionally left blank: logo removed -->
+  <div class="page-wrapper">
+
+    <!-- سرچ -->
+    <div class="search-wrapper">
+      <button class="search-btn" id="searchButton">🔍</button>
+      <input type="text" id="searchBox" class="search-box" placeholder="جستجو..." />
     </div>
-  </header>
 
-  <main class="container main-content">
-    <section class="hero">
-      <h1 class="sr-only">راهنمای هوشمند خرید</h1>
+    <!-- دسته‌بندی‌ها -->
+    <div class="category-container">
+      <a href="category.html?cat=phone" class="category-item">گوشی</a>
+      <a href="category.html?cat=laptop" class="category-item">لپ‌تاپ</a>
+      <a href="category.html?cat=tv" class="category-item">تلویزیون</a>
+      <a href="category.html?cat=headphones" class="category-item">هدفون</a>
+      <a href="category.html?cat=watch" class="category-item">ساعت هوشمند</a>
+      <a href="category.html?cat=camera" class="category-item">دوربین</a>
+      <a href="category.html?cat=tablet" class="category-item">تبلت</a>
+    </div>
 
-      <div class="search-box">
-        <input id="searchInput" type="search" placeholder="جستجوی کالا یا دسته‌بندی..." aria-label="جستجو" />
-        <button id="searchBtn" aria-label="جستجو">
-          <!-- simple magnifier icon -->
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-      </div>
-
-      <div id="searchResults" class="search-results" aria-live="polite"></div>
-    </section>
-
-    <section class="banners">
-      <h2 class="section-title">محصولات پربازدید</h2>
-      <div id="bannersContainer" class="banners-grid">
-        <!-- بنرها توسط JS پر می‌شوند -->
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">© تمامی حقوق محفوظ است</div>
-  </footer>
-
-  <script src="products.js" defer></script>
-  <script src="script.js" defer></script>
+  </div>
+<script src="script.js"></script>
 </body>
 </html>
