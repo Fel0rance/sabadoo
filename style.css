@@ -1,39 +1,90 @@
-:root{
-  --accent:#14A897;
-  --muted:#6b6b6b;
-  --card:#ffffff;
-  --bg:#f6f7f8;
+/* پایه */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Vazirmatn", sans-serif;
+  direction: rtl;
+  background-color: #f6f7f8;
 }
-*{box-sizing:border-box}
-html,body{height:100%;margin:0;font-family: "Vazirmatn", system-ui, -apple-system, "Segoe UI", Roboto, Arial;direction:rtl;background:var(--bg);color:#111}
-.page-wrapper{max-width:980px;margin:20px auto;padding:18px;display:flex;flex-direction:column;gap:20px;align-items:center}
-.brand{margin:0;color:var(--accent)}
-/* search */
-.search-section{width:100%;display:flex;flex-direction:column;align-items:center;gap:8px;position:relative}
-.search-box-container{width:100%;max-width:760px;position:relative}
-.search-box{width:100%;height:52px;padding:0 48px 0 14px;border-radius:14px;border:1px solid #e0e0e0;background:#fff;font-size:16px;outline:none}
-.search-box:focus{box-shadow:0 8px 24px rgba(20,168,151,0.08);border-color:var(--accent)}
-.search-icon{position:absolute;right:14px;top:50%;transform:translateY(-50%);pointer-events:none;color:#777}
 
-/* suggestions */
-.suggest-box{position:absolute;top:66px;left:50%;transform:translateX(-50%);width:100%;max-width:760px;background:#fff;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.08);overflow:hidden;z-index:60;display:none}
-.suggest-item{padding:12px 16px;cursor:pointer;border-bottom:1px solid #f1f1f1}
-.suggest-item:last-child{border-bottom:none}
-.suggest-item:hover{background:#f7f7f7}
+/* Wrapper کل صفحه */
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+}
 
-/* categories grid */
-.category-section{width:100%;display:flex;justify-content:center}
-.category-grid{width:100%;display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px;max-width:980px}
-.category-card{background:var(--card);padding:14px;border-radius:12px;display:flex;align-items:center;justify-content:center;min-height:88px;text-align:center;box-shadow:0 6px 18px rgba(0,0,0,0.04);cursor:pointer;transition:transform .14s,box-shadow .14s}
-.category-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,0.08)}
-.category-title{font-weight:700}
+/* جستجو */
+.search-wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+}
+.search-box {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 20px;
+  border: 1px solid #d6d6d6;
+  font-size: 16px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+.search-box:focus {
+  border-color: #14A897;
+  box-shadow: 0 4px 12px rgba(20,168,151,0.08);
+}
 
-/* footer */
-.muted{color:var(--muted);font-size:13px}
+/* دسته‌بندی */
+.category-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  max-width: 900px;
+}
+.category-item {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 calc(25% - 20px);
+  max-width: 200px;
+  height: 80px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.category-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
 
-/* responsive */
-@media(max-width:560px){
-  .search-box{height:46px;font-size:15px}
-  .category-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
-  .suggest-box{top:56px}
+/* دکمه‌های مرتب‌سازی */
+.filter-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.filter-btn {
+  background-color: #14A897;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(20,168,151,0.12);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.filter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(20,168,151,0.15);
 }
