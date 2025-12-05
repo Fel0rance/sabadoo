@@ -1,21 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fa">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Store</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>سبدو — خانه</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+  <main class="page-wrapper">
+    <header>
+      <h1 class="brand">سبدو</h1>
+    </header>
 
-    <div class="search-box">
-        <input type="text" id="searchInput" placeholder="جستجو..." />
+    <section class="search-section">
+      <div class="search-box-container">
+        <input id="searchBox" class="search-box" type="text" placeholder="جستجو در دسته‌ها..." autocomplete="off" />
         <span class="search-icon">🔍</span>
-    </div>
+      </div>
+      <div id="suggestions" class="suggest-box" aria-hidden="true"></div>
+    </section>
 
-    <ul id="categoryList" class="category-list"></ul>
+    <section class="category-section">
+      <div id="categoryGrid" class="category-grid">
+        <!-- اگر Supabase نباشد، اینجا fallback محلی نشان داده می‌شود -->
+      </div>
+    </section>
 
-    <script type="module" src="script.js"></script>
+    <footer class="muted">نسخه آزمایشی سبدو</footer>
+  </main>
+
+  <!-- script باید type="module" باشه -->
+  <script type="module" src="script.js"></script>
 </body>
 </html>
