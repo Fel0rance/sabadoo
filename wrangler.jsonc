@@ -1,7 +1,8 @@
-name = "sabadoo"
-compatibility_date = "2025-12-05"
-
-# مسیر فایل‌ها یا فولدر assets
-[site]
-bucket = "./"
-entry-point = "./"
+{
+  "name": "sabadoo",
+  "compatibility_date": "2025-12-05",
+  "site": {
+    "bucket": "./",
+    "entry-point": "./"
+  }
+}
