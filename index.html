@@ -1,30 +1,24 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Sabadoo</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
   <div class="page-wrapper">
-    <!-- جستجو -->
-    <div class="search-wrapper" role="search" aria-label="جستجو در سایت">
-      <input type="text" id="searchBox" class="search-box" placeholder="جستجو در سایت..." />
+
+    <!-- کادر جستجو -->
+    <div class="search-wrapper">
+      <input type="text" id="searchBox" class="search-box" placeholder="جستجو در دسته‌بندی‌ها..." />
+      <ul id="searchResults" class="search-results"></ul>
     </div>
 
-    <!-- دسته‌بندی‌ها -->
-    <div class="category-container" id="categoryContainer">
-      <!-- دسته‌ها از JS بارگذاری می‌شوند -->
-    </div>
+    <!-- کانتینر دسته‌بندی‌ها -->
+    <div class="category-container" id="categoryContainer"></div>
 
-    <!-- دکمه‌های مرتب‌سازی -->
-    <div class="filter-buttons">
-      <button class="filter-btn">🔥 پربازدیدترین</button>
-      <button class="filter-btn">💰 پرفروش‌ترین</button>
-      <button class="filter-btn">🆕 جدیدترین</button>
-      <button class="filter-btn">❤️ محبوب‌ترین</button>
-    </div>
   </div>
 
   <script src="script.js"></script>
