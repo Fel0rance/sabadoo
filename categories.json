@@ -1,0 +1,9 @@
+[
+  { "id": 1, "name": "گوشی", "image": "phone.png" },
+  { "id": 2, "name": "لپ‌تاپ", "image": "laptop.png" },
+  { "id": 3, "name": "تلویزیون", "image": "tv.png" },
+  { "id": 4, "name": "هدفون", "image": "headphones.png" },
+  { "id": 5, "name": "ساعت هوشمند", "image": "watch.png" },
+  { "id": 6, "name": "دوربین", "image": "camera.png" },
+  { "id": 7, "name": "تبلت", "image": "tablet.png" }
+]
