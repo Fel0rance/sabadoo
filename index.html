@@ -1,51 +1,21 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sabadoo</title>
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Supabase CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Store</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <div class="page-wrapper">
 
-        <!-- جستجو -->
-        <div class="search-wrapper" role="search" aria-label="جستجو در سایت">
-
-            <!-- input -->
-            <div class="search-box-container">
-                <input type="text" id="searchBox" class="search-box" placeholder="جستجو…">
-
-                <!-- آیکن داخل باکس -->
-                <span class="search-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <path d="M21 21l-4.35-4.35" stroke="#999" stroke-width="2" stroke-linecap="round"/>
-                        <circle cx="10.5" cy="10.5" r="6" stroke="#999" stroke-width="2"/>
-                    </svg>
-                </span>
-            </div>
-
-            <!-- لیست پیشنهادها -->
-            <div id="suggestions" class="suggestions-box"></div>
-        </div>
-
-        <!-- مستطیل‌های دسته‌بندی -->
-        <div class="category-container">
-            <a class="category-item">گوشی</a>
-            <a class="category-item">لپ‌تاپ</a>
-            <a class="category-item">تلویزیون</a>
-            <a class="category-item">هدفون</a>
-            <a class="category-item">ساعت هوشمند</a>
-            <a class="category-item">دوربین</a>
-            <a class="category-item">تبلت</a>
-        </div>
-
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="جستجو..." />
+        <span class="search-icon">🔍</span>
     </div>
 
-    <script src="script.js"></script>
+    <ul id="categoryList" class="category-list"></ul>
+
+    <script type="module" src="script.js"></script>
 </body>
 </html>
