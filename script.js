@@ -1,86 +1,91 @@
-// -------------------------
-//  اتصال به Supabase
-// -------------------------
-const SUPABASE_URL = "https://YOUR-PROJECT-ID.supabase.co";
-const SUPABASE_KEY = "YOUR_PUBLIC_ANON_KEY";
+// --------------------------------------------------
+//   اتصال به Supabase
+// --------------------------------------------------
+const SUPABASE_URL = "https://jqxfxmpbubexauqmebzr.supabase.co";
+const SUPABASE_KEY =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpxeGZ4bXBidWJleGF1cW1lYnpyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ4NDc0MDksImV4cCI6MjA4MDQyMzQwOX0.icUMw2XSnHB9_NJLiztI3pfn9ve0TTr7HaKE_DA18Nk";
 
-const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-// عناصر صفحه
-const searchBox = document.getElementById("searchBox");
-const suggestionsBox = document.getElementById("suggestions");
+// --------------------------------------------------
+//   گرفتن دسته‌بندی‌ها از Supabase
+// --------------------------------------------------
+let allCategories = [];
 
-// لیست دسته بندی ها که از دیتابیس میگیریم
-let categories = [];
-
-// -------------------------
-//  دریافت دسته‌بندی‌ها از Supabase
-// -------------------------
 async function loadCategories() {
-    const { data, error } = await supabase.from("Category").select("*");
+  const { data, error } = await supabaseClient
+    .from("categories")
+    .select("*");
 
-    if (error) {
-        console.error("خطا در دریافت دسته بندی:", error);
-        return;
-    }
+  if (error) {
+    console.error("خطا در دریافت دسته‌بندی‌ها:", error);
+    return;
+  }
 
-    categories = data;
-    console.log("دسته‌بندی‌ها:", categories);
+  allCategories = data || [];
+  console.log("Categories loaded:", allCategories);
 }
 
+// فوراً دسته‌بندی‌ها را لود کن
 loadCategories();
 
-// -------------------------
-//  نمایش پیشنهادها هنگام تایپ
-// -------------------------
+// --------------------------------------------------
+//   سرچ — پیشنهاد دسته‌بندی‌ها هنگام تایپ
+// --------------------------------------------------
+
+const searchBox = document.getElementById("searchBox");
+const suggestionBox = document.getElementById("suggestions"); // این دیو باید داخل HTML اضافه شده باشه
+
 searchBox.addEventListener("input", () => {
-    const value = searchBox.value.trim();
+  const q = searchBox.value.trim();
 
-    // اگر چیزی تایپ نشده بود، لیست پاک شود
-    if (value === "") {
-        suggestionsBox.innerHTML = "";
-        suggestionsBox.style.display = "none";
-        return;
-    }
+  if (!q) {
+    suggestionBox.innerHTML = "";
+    suggestionBox.style.display = "none";
+    return;
+  }
 
-    // فیلتر دسته‌بندی‌ها
-    const filtered = categories.filter(cat =>
-        cat.name.toLowerCase().includes(value.toLowerCase())
-    );
+  const filtered = allCategories.filter((cat) =>
+    cat.name.toLowerCase().includes(q.toLowerCase())
+  );
 
-    // ساخت لیست
-    suggestionsBox.innerHTML = "";
+  if (filtered.length === 0) {
+    suggestionBox.innerHTML = "";
+    suggestionBox.style.display = "none";
+    return;
+  }
 
-    filtered.forEach(cat => {
-        const item = document.createElement("div");
-        item.className = "suggestion-item";
-        item.textContent = cat.name;
+  suggestionBox.innerHTML = filtered
+    .map((c) => `<div class="suggest-item">${c.name}</div>`)
+    .join("");
 
-        item.addEventListener("click", () => {
-            window.location.href = `category.html?id=${cat.id}`;
-        });
+  suggestionBox.style.display = "block";
 
-        suggestionsBox.appendChild(item);
+  document.querySelectorAll(".suggest-item").forEach((item) => {
+    item.addEventListener("click", () => {
+      searchBox.value = item.textContent;
+      suggestionBox.innerHTML = "";
+      suggestionBox.style.display = "none";
+
+      // بعداً اینجا ریدایرکت می‌ذاری—for example:
+      // window.location.href = `/category.html?name=${item.textContent}`;
     });
-
-    suggestionsBox.style.display = filtered.length ? "block" : "none";
+  });
 });
 
-// -------------------------
-//  جستجو با Enter
-// -------------------------
-searchBox.addEventListener("keydown", e => {
-    if (e.key === "Enter") {
-        const value = searchBox.value.trim();
-        if (!value) return;
+// --------------------------------------------------
+//   سرچ با دکمه یا Enter
+// --------------------------------------------------
+const searchButton = document.getElementById("searchButton");
 
-        // پیدا کردن اولین دسته تطبیق داده شده
-        const match = categories.find(cat =>
-            cat.name.toLowerCase().includes(value.toLowerCase())
-        );
+function doSearch() {
+  const q = searchBox.value.trim();
+  if (!q) return;
 
-        if (match) {
-            window.location.href = `category.html?id=${match.id}`;
-        }
-    }
+  alert("جستجو: " + q);
+}
+
+searchButton.addEventListener("click", doSearch);
+searchBox.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") doSearch();
 });
