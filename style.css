@@ -7,7 +7,7 @@ html, body {
     position: relative;
 }
 
-/* بکگراند مورب نقاط */
+/* پس‌زمینه نقطه‌ای */
 body::before {
     content: "";
     position: fixed;
@@ -22,84 +22,97 @@ body::before {
     z-index: 0;
 }
 
-/* کل محتوا وسط صفحه */
+/* وسط‌چین */
 .page-wrapper {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 30px;
+    gap: 40px;
     z-index: 1;
 }
 
-/* رپر جستجو */
+/* ===== جستجو ===== */
+
 .search-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 600px; /* عریض‌تر */
-  margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-box-container {
+    position: relative;
 }
 
 .search-box {
-  width: 100%;
-  padding: 12px 40px 12px 12px; /* جا برای آیکن */
-  border-radius: 20px;
-  border: 1px solid #d6d6d6;
-  font-size: 16px;
-  box-sizing: border-box;
+    height: 50px;
+    width: 500px;
+    max-width: calc(100vw - 80px);
+    padding: 0 45px 0 12px; /* جا برای آیکن */
+    font-size: 17px;
+    border-radius: 16px;
+    border: 1px solid #d6d6d6;
+    background: #fff;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
 }
 
-.search-btn {
-  position: absolute;
-  right: 8px;
-  top: 50%;
-  transform: translateY(-50%);
-  border: none;
-  background: none;
-  font-size: 20px;
-  cursor: pointer;
+.search-box:focus {
+    border-color: #14A897;
+    box-shadow: 0 6px 18px rgba(20,168,151,0.08);
 }
 
-.suggestions-list {
-  list-style: none;
-  padding: 0;
-  margin: 5px 0 0 0;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background: #fff;
-  max-height: 200px;
-  overflow-y: auto;
-  display: none; /* اول مخفی */
-  position: absolute;
-  width: 100%;
-  z-index: 1000;
+.search-icon {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    display: inline-flex;
 }
 
-.suggestions-list li {
-  padding: 8px 12px;
-  cursor: pointer;
+/* ===== لیست پیشنهادها ===== */
+
+.suggestions-box {
+    width: 500px;
+    max-width: calc(100vw - 80px);
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    margin-top: 8px;
+    display: none;
+    overflow: hidden;
+    position: relative;
+    z-index: 10;
 }
 
-.suggestions-list li:hover {
-  background-color: #f0f0f0;
+.suggestion-item {
+    padding: 12px;
+    font-size: 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    background: #fff;
 }
 
+.suggestion-item:hover {
+    background: #f4f4f4;
+}
 
-/* کانتینر دسته‌بندی‌ها */
+/* ===== دسته‌بندی‌ها ===== */
+
 .category-container {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
     justify-content: center;
     max-width: 900px;
-    z-index: 2;
 }
 
-/* مستطیل هر دسته */
 .category-item {
     text-decoration: none;
-    color: inherit;
+    color: #000;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -119,31 +132,3 @@ body::before {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
-
-/* فقط برای category.html */
-.product-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.filter-section {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
-}
-
-.filter-section button {
-    background-color: #14A897;
-    color: #fff;
-    border: none;
-    border-radius: 15px;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-.filter-section button:hover {
-    opacity: 0.9;
-}
-
