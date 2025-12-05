@@ -1,41 +1,61 @@
 body {
   font-family: Vazirmatn, sans-serif;
   margin: 0;
+  padding: 0;
   background-color: #f6f7f8;
   direction: rtl;
 }
 
 .page-wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
 .search-wrapper {
-  display: flex;
-  gap: 10px;
+  position: relative;
+  width: 300px;
 }
 
 #searchBox {
-  width: 300px;
-  padding: 10px 15px;
+  width: 100%;
+  padding: 10px 40px 10px 15px; /* جا برای آیکن */
   font-size: 16px;
   border-radius: 10px;
   border: 1px solid #ccc;
   outline: none;
+  box-sizing: border-box;
 }
 
-#searchButton {
-  background-color: #14A897;
-  border: none;
-  border-radius: 10px;
-  color: #fff;
-  padding: 0 12px;
+.search-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
   font-size: 18px;
+  color: #14A897;
+  pointer-events: none;
+}
+
+.suggestions {
+  margin-top: 5px;
+  width: 300px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  display: none;
+  flex-direction: column;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.suggestion-item {
+  padding: 8px 12px;
   cursor: pointer;
 }
 
-#searchButton:active {
-  transform: translateY(1px);
+.suggestion-item:hover {
+  background-color: #f0f0f0;
 }
