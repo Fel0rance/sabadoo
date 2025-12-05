@@ -1,36 +1,51 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sabadoo</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sabadoo</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Supabase CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body>
-  <div class="page-wrapper">
+    <div class="page-wrapper">
 
-    <!-- سرچ -->
-<div class="search-wrapper">
-  <input type="text" id="searchBox" class="search-box" placeholder="جستجو در دسته‌بندی‌ها...">
-  <button class="search-btn" aria-label="جستجو">🔍</button>
-  <ul id="suggestions" class="suggestions-list"></ul>
-</div>
+        <!-- جستجو -->
+        <div class="search-wrapper" role="search" aria-label="جستجو در سایت">
 
+            <!-- input -->
+            <div class="search-box-container">
+                <input type="text" id="searchBox" class="search-box" placeholder="جستجو…">
 
-    <!-- دسته‌بندی‌ها -->
-    <div class="category-container">
-      <a href="category.html?cat=phone" class="category-item">گوشی</a>
-      <a href="category.html?cat=laptop" class="category-item">لپ‌تاپ</a>
-      <a href="category.html?cat=tv" class="category-item">تلویزیون</a>
-      <a href="category.html?cat=headphones" class="category-item">هدفون</a>
-      <a href="category.html?cat=watch" class="category-item">ساعت هوشمند</a>
-      <a href="category.html?cat=camera" class="category-item">دوربین</a>
-      <a href="category.html?cat=tablet" class="category-item">تبلت</a>
+                <!-- آیکن داخل باکس -->
+                <span class="search-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M21 21l-4.35-4.35" stroke="#999" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="10.5" cy="10.5" r="6" stroke="#999" stroke-width="2"/>
+                    </svg>
+                </span>
+            </div>
+
+            <!-- لیست پیشنهادها -->
+            <div id="suggestions" class="suggestions-box"></div>
+        </div>
+
+        <!-- مستطیل‌های دسته‌بندی -->
+        <div class="category-container">
+            <a class="category-item">گوشی</a>
+            <a class="category-item">لپ‌تاپ</a>
+            <a class="category-item">تلویزیون</a>
+            <a class="category-item">هدفون</a>
+            <a class="category-item">ساعت هوشمند</a>
+            <a class="category-item">دوربین</a>
+            <a class="category-item">تبلت</a>
+        </div>
+
     </div>
 
-  </div>
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
-
