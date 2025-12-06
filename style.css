@@ -8,41 +8,65 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;  /* رنگ پس‌زمینه روشن */
-    color: #181818;  /* رنگ متن تیره برای بهتر خوانایی */
-    height: 100vh;  /* ارتفاع کل صفحه */
+    color: #181818;  /* رنگ متن تیره */
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: 
-        radial-gradient(circle, rgba(0, 0, 0, 0.2) 1px, transparent 1px);  /* پترن نقاط کم‌رنگ */
-    background-size: 20px 20px;  /* اندازه نقاط */
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.2) 1px, transparent 1px);
+    background-size: 20px 20px;
 }
 
 /* استایل برای container */
 .container {
     width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* استایل برای سرچ بار */
 .search-bar {
-    padding: 12px 40px 12px 20px;  /* فضای داخلی برای آیکن */
+    padding: 12px 40px 12px 20px;
     border-radius: 25px;
-    border: 2px solid #333;  /* رنگ تیره‌تر برای حاشیه */
-    background-color: #f5f5f5;  /* رنگ تیره‌تر برای پس‌زمینه محتوا */
-    color: #000000;  /* رنگ متن سفید */
+    border: 2px solid #333;
+    background-color: #f5f5f5;
+    color: #000000;
     font-size: 16px;
-    width: 80%;  /* عرض 80% از صفحه */
-    max-width: 500px;  /* حداکثر عرض */
-    text-align: right;  /* متن سمت راست باشد */
-    direction: rtl;  /* راست‌چین کردن متن */
-    background-image: url('https://img.icons8.com/ios-filled/50/000000/search.png');  /* آیکن جستجو */
+    width: 80%;
+    max-width: 500px;
+    text-align: right;
+    direction: rtl;
+    background-image: url('https://img.icons8.com/ios-filled/50/000000/search.png');
     background-repeat: no-repeat;
-    background-position: 10px center;  /* آیکن در سمت چپ سرچ بار */
-    background-size: 20px;  /* اندازه آیکن */
+    background-position: 10px center;
+    background-size: 20px;
 }
 
+/* رنگ placeholder */
 .search-bar::placeholder {
-    color: #000000;  /* رنگ متن placeholder */
+    color: #000000;
+}
+
+/* لیست پیشنهادات */
+.suggestions-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 5px;
+    width: 80%;
+    max-width: 500px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.suggestions-list li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.suggestions-list li:hover {
+    background-color: #eee;
 }
