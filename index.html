@@ -1,20 +1,111 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fa">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sabadoo</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>سبد — راهنمای هوشمند خرید</title>
+  <meta name="description" content="سبد — راهنمای خرید و بررسی محصولات به زبان ساده" />
+  <!-- favicon: اضافه کن فایل favicon.ico در روت پروژه -->
+  <link rel="icon" href="favicon.ico" />
+  <!-- فونت (از گوگل) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
 </head>
 <body>
-  <div class="page-wrapper">
-    <div class="search-wrapper">
-      <input type="text" id="searchBox" placeholder="جستجو در سایت..." />
-      <span class="search-icon">🔍</span>
-    </div>
-    <div id="suggestions" class="suggestions"></div>
-  </div>
+  <!--
+    راهنما: این هدر در همه صفحات یکسان است. اگر لوگوی شخصی داری، نام فایل را به logo.png تغییر بده.
+  -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <!-- اگر logo.png دارید، جایگزین تگ زیر کنید -->
+        <img src="logo.png" alt="سبد" class="brand-logo" onerror="this.style.display='none'">
+        <span class="brand-text">سبد</span>
+      </a>
 
-  <script src="script.js"></script>
+      <nav id="mainNav" class="nav">
+        <a href="index.html">خانه</a>
+        <a href="categories.html">دسته‌ها</a>
+        <a href="blog.html">بلاگ</a>
+        <a href="about.html">درباره</a>
+        <a href="contact.html">تماس</a>
+      </nav>
+
+      <button id="navToggle" class="nav-toggle" aria-label="منو">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h1>راهنمای هوشمند خرید</h1>
+          <p>انتخاب بهترین محصول بر اساس نیاز تو. بررسی‌ها، مقایسه‌ها و راهنمای خرید دسته‌بندی‌شده.</p>
+          <div class="hero-cta">
+            <a class="btn primary" href="categories.html">مشاهده دسته‌ها</a>
+            <a class="btn ghost" href="about.html">درباره سبد</a>
+          </div>
+        </div>
+
+        <div class="hero-cards" aria-hidden="false">
+          <!-- نمونه کارت‌های معرفی (استاتیک) -->
+          <article class="card small">
+            <div class="card-head">موبایل</div>
+            <div class="card-body">راهنمای خرید تلفن همراه: از بودجه تا عملکرد</div>
+          </article>
+          <article class="card small">
+            <div class="card-head">لپ‌تاپ</div>
+            <div class="card-body">راهنمای خرید لپ‌تاپ مناسب کار و گیمینگ</div>
+          </article>
+          <article class="card small">
+            <div class="card-head">لوازم خانگی</div>
+            <div class="card-body">راهنمای انتخاب ظرفشویی، یخچال و... با بودجه‌های متفاوت</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORIES PREVIEW -->
+    <section class="container section">
+      <h2 class="section-title">دسته‌های محبوب</h2>
+      <div class="grid categories-preview" id="categoriesPreview">
+        <!-- جاوااسکریپت می‌تواند اینجا کارت‌ها را پر کند یا مستقیم HTML اضافه کن -->
+      </div>
+    </section>
+
+    <!-- FEATURED GUIDES -->
+    <section class="container section">
+      <h2 class="section-title">راهنمای پیشنهادی</h2>
+      <div class="grid cards-grid" id="featuredGuides">
+        <!-- پر می‌شود توسط main.js (نمونه داده) -->
+      </div>
+    </section>
+
+    <!-- CTA BOTTOM -->
+    <section class="cta-bottom">
+      <div class="container">
+        <h3>آماده‌ای انتخاب بهتری داشته باشی؟</h3>
+        <a class="btn primary large" href="categories.html">شروع کن</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> سبد — همه حقوق محفوظ است.</div>
+      <div class="footer-links">
+        <a href="about.html">درباره</a>
+        <a href="contact.html">تماس</a>
+        <a href="blog.html">بلاگ</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    // مقداردهی کوچک: سال در فوتر
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
