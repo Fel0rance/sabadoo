@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fa">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>دسته‌ها — سبد</title>
+  <link rel="icon" href="favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <!-- header shared -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="logo.png" alt="سبد" class="brand-logo" onerror="this.style.display='none'">
+        <span class="brand-text">سبد</span>
+      </a>
+      <nav id="mainNav" class="nav">
+        <a href="index.html">خانه</a>
+        <a href="categories.html" class="active">دسته‌ها</a>
+        <a href="blog.html">بلاگ</a>
+        <a href="about.html">درباره</a>
+        <a href="contact.html">تماس</a>
+      </nav>
+      <button id="navToggle2" class="nav-toggle" aria-label="منو">☰</button>
+    </div>
+  </header>
+
+  <main class="container section">
+    <h1 class="section-title">تمام دسته‌ها</h1>
+    <p class="muted">کلیک کن روی هر دسته برای دیدن راهنماها و محصولات داخلش.</p>
+
+    <div class="grid categories-list" id="categoriesList">
+      <!-- اینجا با JS پر می‌شود؛ یا می‌توانی به صورت استاتیک کارت‌ها را اضافه کنی -->
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="year2"></span> سبد</div>
+      <div class="footer-links">
+        <a href="about.html">درباره</a>
+        <a href="contact.html">تماس</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>document.getElementById('year2').textContent = new Date().getFullYear();</script>
+</body>
+</html>
