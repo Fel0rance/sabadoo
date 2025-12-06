@@ -1,38 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fa">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>دسته‌بندی</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>نمای دسته — سبد</title>
+  <link rel="stylesheet" href="main.css">
 </head>
-
 <body>
-  <div class="page-wrapper">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="logo.png" alt="سبد" class="brand-logo" onerror="this.style.display='none'">
+        <span class="brand-text">سبد</span>
+      </a>
+      <nav class="nav">
+        <a href="index.html">خانه</a>
+        <a href="categories.html">دسته‌ها</a>
+        <a href="blog.html">بلاگ</a>
+      </nav>
+      <button class="nav-toggle" aria-label="منو">☰</button>
+    </div>
+  </header>
 
-    <h2 id="catTitle">در حال بارگذاری...</h2>
+  <main class="container section">
+    <!-- راهنما: title و breadcrumb را بر اساس دسته تغییر بده -->
+    <nav class="breadcrumb"><a href="categories.html">دسته‌ها</a> › <span id="categoryName">موبایل</span></nav>
+    <h1 id="categoryTitle" class="section-title">موبایل</h1>
 
-    <div id="productList" class="product-list"></div>
+    <!-- فیلتر استاتیک / آینده: می‌تونی JS اضافه کنی -->
+    <div class="filters">
+      <input id="searchInput" type="search" placeholder="جستجو در محصولات..." />
+      <select id="sortSelect">
+        <option value="relevance">مرتبط‌ترین</option>
+        <option value="popular">پربازدید</option>
+        <option value="new">جدید</option>
+      </select>
+    </div>
 
-  </div>
+    <div class="grid products-grid" id="productsGrid">
+      <!-- هر کارت محصول با main.js یا دستی اضافه می‌شود -->
+    </div>
+  </main>
 
-<script>
-  const params = new URLSearchParams(window.location.search);
-  const category = params.get("cat");
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="year3"></span> سبد</div>
+    </div>
+  </footer>
 
-  document.getElementById("catTitle").innerText =
-      "دسته‌بندی: " + category;
-
-  // نمایش اولویت‌ها یا فیلترها فقط مخصوص این دسته
-  document.getElementById("productList").innerHTML = `
-      <div class="filter-section">
-         <p>اولویت‌های شما:</p>
-         <button>ارزان‌ترین</button>
-         <button>پربازدیدترین</button>
-         <button>بهترین امتیاز</button>
-      </div>
-  `;
-</script>
-
+  <script src="main.js"></script>
+  <script>
+    document.getElementById('year3').textContent = new Date().getFullYear();
+    // TODO: در اینجا می‌توان پارامتر ?cat=phones خواند و محتوا را فیلتر کرد.
+  </script>
 </body>
 </html>
