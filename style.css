@@ -1,4 +1,4 @@
-/* تنظیمات پایه صفحه */
+/* تنظیمات پایه */
 * {
     margin: 0;
     padding: 0;
@@ -7,34 +7,42 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;  /* رنگ پس‌زمینه روشن */
-    color: #181818;  /* رنگ متن تیره */
+    background-color: #f5f5f5;
+    color: #181818;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.2) 1px, transparent 1px);
+    background-image: radial-gradient(circle, rgba(0,0,0,0.2) 1px, transparent 1px);
     background-size: 20px 20px;
 }
 
-/* استایل برای container */
-.container {
-    width: 100%;
+/* wrapper ثابت در وسط صفحه */
+.fixed-wrapper {
+    position: relative; /* برای منوی کشویی */
+    width: 80%;
+    max-width: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* استایل برای سرچ بار */
+/* جعبه سرچ + همبرگر */
+.search-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* استایل سرچ بار */
 .search-bar {
     padding: 12px 40px 12px 20px;
     border-radius: 25px;
     border: 2px solid #333;
     background-color: #f5f5f5;
-    color: #000000;
+    color: #000;
     font-size: 16px;
-    width: 80%;
-    max-width: 500px;
+    width: 100%;
     text-align: right;
     direction: rtl;
     background-image: url('https://img.icons8.com/ios-filled/50/000000/search.png');
@@ -43,30 +51,73 @@ body {
     background-size: 20px;
 }
 
-/* رنگ placeholder */
 .search-bar::placeholder {
-    color: #000000;
+    color: #000;
 }
 
-/* لیست پیشنهادات */
-.suggestions-list {
-    list-style: none;
-    padding: 0;
-    margin-top: 5px;
-    width: 80%;
-    max-width: 500px;
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    max-height: 200px;
-    overflow-y: auto;
-}
-
-.suggestions-list li {
-    padding: 8px;
+/* آیکن همبرگر */
+.hamburger {
+    font-size: 28px;
     cursor: pointer;
+    user-select: none;
+    margin-left: 10px;
 }
 
-.suggestions-list li:hover {
-    background-color: #eee;
+/* منوی کشویی دسته‌بندی‌ها */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 15px;
+    width: 100%;
+    padding-top: 10px;
+    z-index: 10;
+
+    /* انیمیشن pop-up */
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.25s ease;
+}
+
+/* وقتی منو باز است کلاس active اضافه شود */
+.dropdown-menu.active {
+    transform: scaleY(1);
+}
+
+
+
+/* هر دسته‌بندی بصورت مربع */
+.category-item {
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.category-item:hover {
+    transform: translateY(-3px);
+}
+
+/* آیکن مینیمال خطی */
+.category-item img {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 5px;
+}
+
+/* نام دسته‌بندی */
+.category-item span {
+    font-size: 12px;
+    text-align: center;
+    color: #181818;
 }
