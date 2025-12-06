@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="fa">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>راهنمای محصول — سبد</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="logo.png" alt="سبد" class="brand-logo" onerror="this.style.display='none'">
+        <span class="brand-text">سبد</span>
+      </a>
+      <nav class="nav">
+        <a href="index.html">خانه</a>
+        <a href="categories.html">دسته‌ها</a>
+        <a href="blog.html">بلاگ</a>
+      </nav>
+      <button class="nav-toggle" aria-label="منو">☰</button>
+    </div>
+  </header>
+
+  <main class="container section product-page">
+    <nav class="breadcrumb"><a href="categories.html">دسته‌ها</a> › <a href="category.html">موبایل</a> › <span id="productName">iPhone 16</span></nav>
+
+    <div class="product-grid">
+      <div class="product-media">
+        <!-- اگر تصویر محصول داری، اینجا نمایش بده -->
+        <div class="media-placeholder">تصویر محصول</div>
+      </div>
+
+      <div class="product-info">
+        <h1 id="productTitle">iPhone 16 — راهنمای خرید</h1>
+        <div class="product-meta">
+          <span class="badge">امتیاز: 8.7</span>
+          <span class="muted">به‌روز: ۱۴۰۴/۰۸/۱۰</span>
+        </div>
+
+        <section class="product-section">
+          <h3>خلاصه</h3>
+          <p>اینجا خلاصه نقاط قوت و ضعف محصول می‌آید. (قابلیت‌ها، مناسب برای چه کسانی، قیمت هدف)</p>
+        </section>
+
+        <section class="product-section">
+          <h3>نقاط قوت</h3>
+          <ul>
+            <li>دوربین عالی</li>
+            <li>پردازنده قوی</li>
+          </ul>
+        </section>
+
+        <section class="product-section">
+          <h3>نقاط ضعف</h3>
+          <ul>
+            <li>قیمت بالا</li>
+            <li>عدم تغییرات عمده نسبت به نسل قبل</li>
+          </ul>
+        </section>
+
+        <div class="product-actions">
+          <a class="btn primary" href="#">مقایسه با رقبا</a>
+          <a class="btn ghost" href="#">مشاهده نظرات</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="year4"></span> سبد</div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>document.getElementById('year4').textContent = new Date().getFullYear();</script>
+</body>
+</html>
