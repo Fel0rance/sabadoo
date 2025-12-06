@@ -11,7 +11,54 @@ const supabase = createClient('https://your-project-url.supabase.co', 'your-anon
 
 // تابع برای جستجو در دسته‌بندی‌ها
 async function searchCategories(query) {
+    const { data, error } = await supa// اتصال به Supabase
+const supabase = supabase.createClient(
+  'https://jqxfxmpbubexauqmebzr.supabase.co', // Project URL
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpxeGZ4bXBidWJleGF1cW1lYnpyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ4NDc0MDksImV4cCI6MjA4MDQyMzQwOX0.icUMw2XSnHB9_NJLiztI3pfn9ve0TTr7HaKE_DA18Nk' // anon key
+);
+
+const searchInput = document.getElementById('search');
+const suggestionsList = document.getElementById('suggestions');
+
+// جستجو در جدول دسته‌بندی‌ها
+async function searchCategories(query) {
     const { data, error } = await supabase
+        .from('categories') // نام جدول
+        .select('category_name, category_slug')
+        .ilike('category_name', `%${query}%`);
+
+    if (error) {
+        console.error('Error:', error);
+        return [];
+    }
+    return data;
+}
+
+// رویداد تایپ در جستجو
+searchInput.addEventListener('input', async () => {
+    const query = searchInput.value.trim();
+
+    suggestionsList.innerHTML = '';
+
+    if (query.length < 1) return;
+
+    const categories = await searchCategories(query);
+
+    if (categories.length === 0) {
+        suggestionsList.innerHTML = '<li>هیچ دسته‌بندی پیدا نشد</li>';
+        return;
+    }
+
+    categories.forEach(cat => {
+        const li = document.createElement('li');
+        li.textContent = cat.category_name;
+        li.addEventListener('click', () => {
+            window.location.href = `/categories/${cat.category_slug}`;
+        });
+        suggestionsList.appendChild(li);
+    });
+});
+base
         .from('categories') // نام جدول دسته‌بندی‌ها
         .select('category_name, category_slug')
         .ilike('category_name', `%${query}%`); // جستجو با استفاده از like برای نام دسته‌بندی
@@ -58,3 +105,4 @@ searchInput.addEventListener('input', async () => {
         suggestionsList.innerHTML = '<li>هیچ دسته‌بندی پیدا نشد</li>';
     }
 });
+
